@@ -293,6 +293,9 @@ public struct PeerStoryStats: Equatable {
 }
 
 func fetchPeerStoryStats(postbox: PostboxImpl, peerId: PeerId) -> PeerStoryStats? {
+    if justgramPostboxStoriesDisabled { // Justgram
+        return nil
+    }
     guard let topItems = postbox.storyTopItemsTable.get(peerId: peerId) else {
         return nil
     }

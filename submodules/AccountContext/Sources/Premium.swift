@@ -157,7 +157,7 @@ public enum StarsPurchasePurpose: Equatable {
 public struct PremiumConfiguration {
     public static var defaultValue: PremiumConfiguration {
         return PremiumConfiguration(
-            isPremiumDisabled: false,
+            isPremiumDisabled: justgramPromosDisabled, // Justgram
             areStarsDisabled: true,
             subscriptionManagementUrl: "",
             showPremiumGiftInAttachMenu: false,
@@ -280,14 +280,14 @@ public struct PremiumConfiguration {
                 return (value as? Double).flatMap(Int32.init)
             }
             return PremiumConfiguration(
-                isPremiumDisabled: data["premium_purchase_blocked"] as? Bool ?? defaultValue.isPremiumDisabled,
-                areStarsDisabled: data["stars_purchase_blocked"] as? Bool ?? defaultValue.areStarsDisabled,
+                isPremiumDisabled: justgramPromosDisabled || (data["premium_purchase_blocked"] as? Bool ?? defaultValue.isPremiumDisabled), // Justgram
+                areStarsDisabled: justgramPromosDisabled || (data["stars_purchase_blocked"] as? Bool ?? defaultValue.areStarsDisabled), // Justgram
                 subscriptionManagementUrl: data["premium_manage_subscription_url"] as? String ?? "",
-                showPremiumGiftInAttachMenu: data["premium_gift_attach_menu_icon"] as? Bool ?? defaultValue.showPremiumGiftInAttachMenu,
-                showPremiumGiftInTextField: data["premium_gift_text_field_icon"] as? Bool ?? defaultValue.showPremiumGiftInTextField,
-                giveawayGiftsPurchaseAvailable: data["giveaway_gifts_purchase_available"] as? Bool ?? defaultValue.giveawayGiftsPurchaseAvailable,
-                starsGiftsPurchaseAvailable: data["stars_gifts_enabled"] as? Bool ?? defaultValue.starsGiftsPurchaseAvailable,
-                starGiftsPurchaseBlocked: data["stargifts_blocked"] as? Bool ?? defaultValue.starGiftsPurchaseBlocked,
+                showPremiumGiftInAttachMenu: !justgramPromosDisabled && (data["premium_gift_attach_menu_icon"] as? Bool ?? defaultValue.showPremiumGiftInAttachMenu), // Justgram
+                showPremiumGiftInTextField: !justgramPromosDisabled && (data["premium_gift_text_field_icon"] as? Bool ?? defaultValue.showPremiumGiftInTextField), // Justgram
+                giveawayGiftsPurchaseAvailable: !justgramPromosDisabled && (data["giveaway_gifts_purchase_available"] as? Bool ?? defaultValue.giveawayGiftsPurchaseAvailable), // Justgram
+                starsGiftsPurchaseAvailable: !justgramPromosDisabled && (data["stars_gifts_enabled"] as? Bool ?? defaultValue.starsGiftsPurchaseAvailable), // Justgram
+                starGiftsPurchaseBlocked: justgramPromosDisabled || (data["stargifts_blocked"] as? Bool ?? defaultValue.starGiftsPurchaseBlocked), // Justgram
                 boostsPerGiftCount: get(data["boosts_per_sent_gift"]) ?? defaultValue.boostsPerGiftCount,
                 audioTransciptionTrialMaxDuration: get(data["transcribe_audio_trial_duration_max"]) ?? defaultValue.audioTransciptionTrialMaxDuration,
                 audioTransciptionTrialCount: get(data["transcribe_audio_trial_weekly_number"]) ?? defaultValue.audioTransciptionTrialCount,

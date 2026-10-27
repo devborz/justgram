@@ -1398,6 +1398,9 @@ public final class AccountViewTracker {
     }
     
     public func refreshStoryStatsForPeerIds(peerIds: [PeerId]) {
+        if justgramStoriesDisabled { // Justgram
+            return
+        }
         self.queue.async {
             self.pendingRefreshStoriesForPeerIds.append(contentsOf: peerIds)
             

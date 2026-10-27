@@ -2525,6 +2525,11 @@ public final class PeerExpiringStoryListContext {
             self.account = account
             self.peerId = peerId
             
+            if justgramStoriesDisabled { // Justgram
+                self.statePromise.set(.single(State(items: [], isCached: false, maxReadId: 0, isLoading: false)))
+                return
+            }
+            
             self.listDisposable = (combineLatest(queue: self.queue,
                 account.postbox.combinedView(keys: [
                     PostboxViewKey.storiesState(key: .peer(peerId)),

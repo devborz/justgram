@@ -297,6 +297,10 @@ public class ChatListControllerImpl: TelegramBaseController, ChatListController 
                 
         super.init(context: context, navigationBarPresentationData: nil)
         
+        if case .chatList(groupId: .root) = location, !previewing { // Justgram
+            justgramStartHiddenChats(context: context)
+        }
+        
         self.accessoryPanelContainer = ASDisplayNode()
         
         self.tabBarItemContextActionType = .always

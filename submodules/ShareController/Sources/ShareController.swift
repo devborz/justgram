@@ -665,7 +665,7 @@ public final class ShareController: ViewController {
             forceTheme: self.forceTheme,
             fromPublicChannel: fromPublicChannel,
             segmentedValues: self.segmentedValues,
-            shareStory: self.shareStory,
+            shareStory: justgramStoriesDisabled ? nil : self.shareStory, // Justgram
             collectibleItemInfo: self.collectibleItemInfo,
             messageCount: messageCount
         )

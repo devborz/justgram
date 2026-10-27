@@ -7032,7 +7032,7 @@ public class GiftViewScreen: ViewControllerComponentContainer {
         self.buyGift = buyGift
         self.updateResellStars = updateResellStars
         self.togglePinnedToTop = togglePinnedToTop
-        self.shareStory = shareStory
+        self.shareStory = justgramStoriesDisabled ? nil : shareStory // Justgram
         self.openChatTheme = openChatTheme
         self.customAction = customAction
         

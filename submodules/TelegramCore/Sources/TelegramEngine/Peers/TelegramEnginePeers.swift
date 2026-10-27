@@ -1639,10 +1639,16 @@ public extension TelegramEngine {
         }
         
         public func recommendedChannels(peerId: EnginePeer.Id?) -> Signal<RecommendedChannels?, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .single(nil)
+            }
             return _internal_recommendedChannels(account: self.account, peerId: peerId)
         }
         
         public func recommendedChannelPeerIds(peerId: EnginePeer.Id?) -> Signal<[EnginePeer.Id]?, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .single([])
+            }
             return _internal_recommendedChannelPeerIds(account: self.account, peerId: peerId)
         }
         
@@ -1651,26 +1657,44 @@ public extension TelegramEngine {
         }
         
         public func requestRecommendedChannels(peerId: EnginePeer.Id, forceUpdate: Bool = false) -> Signal<Never, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .complete()
+            }
             return _internal_requestRecommendedChannels(account: self.account, peerId: peerId, forceUpdate: forceUpdate)
         }
         
         public func recommendedAppPeerIds() -> Signal<[EnginePeer.Id]?, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .single([])
+            }
             return _internal_recommendedAppPeerIds(account: self.account)
         }
         
         public func requestGlobalRecommendedChannelsIfNeeded() -> Signal<Never, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .complete()
+            }
             return _internal_requestRecommendedChannels(account: self.account, peerId: nil, forceUpdate: false)
         }
         
         public func requestRecommendedAppsIfNeeded() -> Signal<Never, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .complete()
+            }
             return _internal_requestRecommendedApps(account: self.account, forceUpdate: false)
         }
 
         public func recommendedBots(peerId: EnginePeer.Id) -> Signal<RecommendedBots?, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .single(nil)
+            }
             return _internal_recommendedBots(account: self.account, peerId: peerId)
         }
         
         public func requestRecommendedBots(peerId: EnginePeer.Id, forceUpdate: Bool = false) -> Signal<Never, NoError> {
+            if justgramPromosDisabled { // Justgram
+                return .complete()
+            }
             return _internal_requestRecommendedBots(account: self.account, peerId: peerId, forceUpdate: forceUpdate)
         }
                 

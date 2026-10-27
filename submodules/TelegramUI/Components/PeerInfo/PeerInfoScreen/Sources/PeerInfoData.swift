@@ -529,7 +529,7 @@ final class PeerInfoScreenData {
         self.threadNotificationSettings = threadNotificationSettings
         self.globalNotificationSettings = globalNotificationSettings
         self._isContact = isContact
-        self.availablePanes = availablePanes
+        self.availablePanes = availablePanes.filter { ![.stories, .storyArchive, .similarChannels, .similarBots, .gifts].contains($0) } // Justgram
         self.groupsInCommon = groupsInCommon
         self.linkedDiscussionPeer = linkedDiscussionPeer
         self.linkedMonoforumPeer = linkedMonoforumPeer

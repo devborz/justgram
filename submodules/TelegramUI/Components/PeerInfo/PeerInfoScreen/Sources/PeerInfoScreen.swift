@@ -197,6 +197,7 @@ enum PeerInfoSettingsSection {
     case stars
     case ton
     case wallet
+    case justgram // Justgram
 }
 
 enum PeerInfoReportType {
@@ -6126,7 +6127,11 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
                 navigationFlags.canEditBotPreviews = true
             }
             navigationFlags.isOwnStories = self.data?.peer?.id == self.context.account.peerId
-            let navigationSets = peerInfoNavigationButtonSets(navigationFlags)
+            var navigationSets = peerInfoNavigationButtonSets(navigationFlags)
+            if justgramStoriesDisabled { // Justgram
+                navigationSets.normal.right.removeAll(where: { $0 == .postStory })
+                navigationSets.expanded.right.removeAll(where: { $0 == .postStory })
+            }
             let showsPaneSet = self.paneSetLatch.update(fraction: effectiveAreaExpansionFraction)
 
             // iPhone Duo: the bar's column takes the icons; the header's title clears what stays in the row.

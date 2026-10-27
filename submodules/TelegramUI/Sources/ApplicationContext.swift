@@ -887,7 +887,7 @@ final class AuthorizedApplicationContext {
     }
     
     func openChatWithPeerId(peerId: EnginePeer.Id, threadId: Int64?, messageId: EngineMessage.Id? = nil, activateInput: Bool = false, storyId: EngineStoryId?, openAppIfAny: Bool = false, alwaysKeepMessageId: Bool = false) {
-        if let storyId {
+        if let storyId, !justgramStoriesDisabled { // Justgram
             var controllers = self.rootController.viewControllers
             controllers = controllers.filter { c in
                 if c is StoryContainerScreen {

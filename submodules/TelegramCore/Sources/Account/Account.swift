@@ -1337,7 +1337,7 @@ public class Account {
         
         self.peerInputActivityManager = PeerInputActivityManager()
         
-        if !supplementary {
+        if !supplementary && !justgramStoriesDisabled { // Justgram
             self.filteredStorySubscriptionsContext = StorySubscriptionsContext(accountPeerId: peerId, postbox: postbox, network: network, isHidden: false)
             self.hiddenStorySubscriptionsContext = StorySubscriptionsContext(accountPeerId: peerId, postbox: postbox, network: network, isHidden: true)
         } else {

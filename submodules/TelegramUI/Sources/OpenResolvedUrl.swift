@@ -1602,6 +1602,10 @@ func openResolvedUrlImpl(
                 dismissInput()
             }
         case let .story(peerId, id):
+            if justgramStoriesDisabled { // Justgram
+                dismissInput()
+                return
+            }
             let _ = (context.account.postbox.transaction { transaction -> Bool in
                 if let value = transaction.getStory(id: EngineStoryId(peerId: peerId, id: id)), !value.data.isEmpty {
                     return true
@@ -1911,6 +1915,10 @@ func openResolvedUrlImpl(
                 present(textAlertController(context: context, updatedPresentationData: updatedPresentationData, title: nil, text: presentationData.strings.BusinessLink_ErrorExpired, actions: [TextAlertAction(type: .defaultAction, title: presentationData.strings.Common_OK, action: {})]), nil)
             }
         case let .storyFolder(peerId, id):
+            if justgramStoriesDisabled { // Justgram
+                dismissInput()
+                return
+            }
             Task { @MainActor [weak navigationController] in
                 guard let peer = await context.engine.data.get(
                     TelegramEngine.EngineData.Item.Peer.Peer(id: peerId)

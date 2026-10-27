@@ -119,6 +119,9 @@ func defaultAvailableSearchPanes(isForum: Bool, hasDownloads: Bool, hasPublicPos
     if !hasDownloads {
         result.removeAll(where: { $0 == .downloads })
     }
+    if justgramPromosDisabled { // Justgram
+        result.removeAll(where: { $0 == .apps || $0 == .globalPosts })
+    }
     
     return result
 }

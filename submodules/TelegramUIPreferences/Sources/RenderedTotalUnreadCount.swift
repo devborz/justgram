@@ -37,6 +37,7 @@ public func renderedTotalUnreadCount(accountManager: AccountManager<TelegramAcco
         }
         return (totalReadCounters.count(for: inAppSettings.totalUnreadCountDisplayStyle.category, in: inAppSettings.totalUnreadCountDisplayCategory.statsType, with: inAppSettings.totalUnreadCountIncludeTags), type)
     }
+    |> justgramAdjustRenderedUnreadCount(accountManager: accountManager, engine: engine) // Justgram
     |> distinctUntilChanged(isEqual: { lhs, rhs in
         return lhs == rhs
     })

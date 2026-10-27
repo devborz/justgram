@@ -1402,6 +1402,7 @@ public final class ChatListNode: ListViewImpl {
     private let autoSetReady: Bool
     
     public let isMainTab = ValuePromise<Bool>(false, ignoreRepeated: true)
+    private let justgramFilterValue = Atomic<JustgramChatListFilter>(value: .inactive) // Justgram
     
     public var synchronousDrawingWhenNotAnimated: Bool = false
     
@@ -2194,6 +2195,8 @@ public final class ChatListNode: ListViewImpl {
         }
         |> distinctUntilChanged
         
+        let justgramFilterValue = self.justgramFilterValue // Justgram
+        
         let chatListNodeViewTransition = combineLatest(queue: viewProcessingQueue,
             hideArchivedFolderByDefault,
             displayArchiveIntro,
@@ -2203,10 +2206,13 @@ public final class ChatListNode: ListViewImpl {
             self.statePromise.get(),
             contacts,
             chatListFilters,
-            accountIsPremium
+            accountIsPremium,
+            justgramChatListFilter(context: context, location: location, mode: mode) // Justgram
         )
-        |> mapToQueue { (hideArchivedFolderByDefault, displayArchiveIntro, storageInfo, savedMessagesPeer, updateAndFilter, state, contacts, chatListFilters, accountIsPremium) -> Signal<ChatListNodeListViewTransition, NoError> in
+        |> mapToQueue { (hideArchivedFolderByDefault, displayArchiveIntro, storageInfo, savedMessagesPeer, updateAndFilter, state, contacts, chatListFilters, accountIsPremium, justgramFilter) -> Signal<ChatListNodeListViewTransition, NoError> in
             let (update, filter) = updateAndFilter
+            let _ = justgramFilterValue.swap(justgramFilter) // Justgram
+            var justgramNeedsRefresh = false // Justgram
             
             let previousHideArchivedFolderByDefaultValue = previousHideArchivedFolderByDefault.swap(hideArchivedFolderByDefault)
             
@@ -2221,6 +2227,10 @@ public final class ChatListNode: ListViewImpl {
                     
                     switch mode {
                     case .chatList:
+                        if justgramFilter.hides(peerEntry) { // Justgram
+                            justgramNeedsRefresh = true
+                            return false
+                        }
                         isEmpty = false
                         return true
                     case let .peers(filter, _, _, _, _, _, _):
@@ -2488,12 +2498,17 @@ public final class ChatListNode: ListViewImpl {
                 case .GroupReferenceEntry:
                     isEmpty = false
                     return true
+                case let .HoleEntry(holeIndex, _): // Justgram
+                    return !justgramFilter.hidesHole(holeIndex)
                 default:
                     return true
                 }
             }
             if isEmpty {
                 entries = [.HeaderEntry]
+            }
+            if justgramNeedsRefresh { // Justgram
+                JustgramHiddenChats.requestRefresh(account: context.account)
             }
             
             let processedView = ChatListNodeView(originalList: update.list, filteredEntries: entries, isLoading: isLoading, filter: filter)
@@ -2697,7 +2712,7 @@ public final class ChatListNode: ListViewImpl {
                     var location: ChatListNodeLocation?
                     if range.firstIndex < 5, let lastItem = originalList.items.last, originalList.hasLater {
                         location = .navigation(index: lastItem.index, filter: strongSelf.chatListFilter)
-                    } else if range.firstIndex >= 5, range.lastIndex >= originalList.items.count - 5, originalList.hasEarlier, let firstItem = originalList.items.first {
+                    } else if range.firstIndex >= 5, range.lastIndex >= strongSelf.justgramFilterValue.with({ $0 }).pagingCount(chatListView) - 5, strongSelf.justgramFilterValue.with({ $0 }).effectiveHasEarlier(originalList), let firstItem = originalList.items.first { // Justgram
                         location = .navigation(index: firstItem.index, filter: strongSelf.chatListFilter)
                     }
                     

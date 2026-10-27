@@ -1077,6 +1077,9 @@ public extension TelegramEngine {
         }
         
         public func storySubscriptions(isHidden: Bool, tempKeepNewlyArchived: Bool = false) -> Signal<EngineStorySubscriptions, NoError> {
+            if justgramStoriesDisabled { // Justgram
+                return .single(EngineStorySubscriptions(accountItem: nil, items: [], hasMoreToken: nil))
+            }
             return `deferred` { () -> Signal<EngineStorySubscriptions, NoError> in
                 let debugTimerSignal: Signal<Bool, NoError>
 #if DEBUG && false
@@ -1418,6 +1421,9 @@ public extension TelegramEngine {
         }
         
         public func preloadStorySubscriptions(isHidden: Bool, preferHighQuality: Signal<Bool, NoError>) -> Signal<[EngineMedia.Id: StoryPreloadInfo], NoError> {
+            if justgramStoriesDisabled { // Justgram
+                return .single([:])
+            }
             let basicPeerKey = PostboxViewKey.basicPeer(self.account.peerId)
             let subscriptionsKey: PostboxStorySubscriptionsKey = isHidden ? .hidden : .filtered
             let storySubscriptionsKey = PostboxViewKey.storySubscriptions(key: subscriptionsKey)

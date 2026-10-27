@@ -940,7 +940,7 @@ extension PeerInfoScreenNode {
                             self?.openBoost()
                         })))
                                                 
-                        if channel.hasPermission(.editStories) {
+                        if channel.hasPermission(.editStories), !justgramStoriesDisabled { // Justgram
                             items.append(.action(ContextMenuActionItem(text: presentationData.strings.PeerInfo_Channel_ArchivedStories, icon: { theme in
                                 generateTintedImage(image: UIImage(bundleImageName: "Chat/Context Menu/Archive"), color: theme.contextMenu.primaryColor)
                             }, action: { [weak self] _, f in

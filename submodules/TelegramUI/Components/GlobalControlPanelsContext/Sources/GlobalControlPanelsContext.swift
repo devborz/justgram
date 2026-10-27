@@ -477,7 +477,7 @@ public final class GlobalControlPanelsContext {
                 }
                 |> distinctUntilChanged
                 
-                self.suggestedChatListNoticeDisposable = (suggestedChatListNoticeSignal
+                self.suggestedChatListNoticeDisposable = (suggestedChatListNoticeSignal |> map(justgramFilterChatListNotice) // Justgram
                 |> deliverOn(self.queue)).startStrict(next: { [weak self] chatListNotice in
                     guard let self else {
                         return

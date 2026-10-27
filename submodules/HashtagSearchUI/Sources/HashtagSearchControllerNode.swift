@@ -405,7 +405,7 @@ final class HashtagSearchControllerNode: ASDisplayNode, ASGestureRecognizerDeleg
         self.storySearchDisposable.set(nil)
         self.storySearchContext = nil
         
-        if !self.query.isEmpty {
+        if !self.query.isEmpty && !justgramStoriesDisabled { // Justgram
             var peerId: EnginePeer.Id?
             if self.controller?.mode == .chatOnly {
                 peerId = self.peer?.id

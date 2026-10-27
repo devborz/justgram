@@ -5668,7 +5668,7 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
                 self.chatDisplayNode.historyNode.scrollToMessage(index: index)
             }
         }, navigateToStory: { [weak self] message, storyId in
-            guard let self else {
+            guard let self, !justgramStoriesDisabled else { // Justgram
                 return
             }
             if let story = message.associatedStories[storyId], story.data.isEmpty {

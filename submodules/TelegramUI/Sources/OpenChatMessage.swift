@@ -38,7 +38,7 @@ func openChatMessageImpl(_ params: OpenChatMessageParams) -> Bool {
         }
     }
     
-    if let story {
+    if let story, !justgramStoriesDisabled { // Justgram
         let navigationController = params.navigationController
         let context = params.context
         let storyContent = SingleStoryContentContextImpl(context: params.context, storyId: story.storyId, readGlobally: true)

@@ -1947,7 +1947,7 @@ public struct StoriesConfiguration {
             } else {
                 venueSearchBot = "foursquare"
             }
-            return StoriesConfiguration(posting: posting, captionEntities: captionEntities, venueSearchBot: venueSearchBot)
+            return StoriesConfiguration(posting: justgramStoriesDisabled ? .disabled : posting, captionEntities: captionEntities, venueSearchBot: venueSearchBot) // Justgram
         } else {
             return .defaultValue
         }

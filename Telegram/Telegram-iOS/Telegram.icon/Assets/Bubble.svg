@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Bubble</title>
+    <g id="Bubble" stroke="none" fill="none" fill-rule="nonzero">
+        <path d="M512,332 C631.293,332 728,410.798 728,508 C728,605.202 631.293,684 512,684 C485.716,684 460.533,680.175 437.272,673.17 C410.5,693.5 371.5,712 324,716 C342.5,694 357.5,667 362.3,637.6 C322.4,605.9 296,559.6 296,508 C296,410.798 392.707,332 512,332 Z" fill="#FFFFFF"></path>
+    </g>
+</svg>

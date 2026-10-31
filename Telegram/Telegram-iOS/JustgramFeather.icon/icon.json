@@ -1,0 +1,61 @@
+{
+  "fill": {
+    "solid": "srgb:1.00000,1.00000,1.00000,1.00000"
+  },
+  "fill-specializations": [
+    {
+      "appearance": "dark",
+      "value": {
+        "solid": "srgb:0.00000,0.00000,0.00000,1.00000"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "blend-mode": "normal",
+      "blur-material": 1,
+      "lighting": "combined",
+      "specular": true,
+      "shadow": {
+        "kind": "layer-color",
+        "opacity": 1
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.4
+      },
+      "layers": [
+        {
+          "glass": true,
+          "image-name": "Feather.svg",
+          "name": "Feather",
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.00000,0.00000,0.00000,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance": "tinted",
+              "value": {
+                "solid": "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "supported-platforms": {
+    "circles": [
+      "watchOS"
+    ],
+    "squares": "shared"
+  }
+}

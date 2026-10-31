@@ -4,6 +4,17 @@ import UIKit
 import SwiftSignalKit
 import TelegramCore
 import TelegramUIPreferences
+import TelegramPresentationData
+
+/// The app icons offered in Appearance. Telegram's own icons carry its logo, which the API terms (§2.4) forbid,
+/// so they are not shipped: the feature phone is the primary icon (Telegram.icon), the feather and the weight are the alternatives.
+func justgramAppIcons(replacing icons: [PresentationAppIcon]) -> [PresentationAppIcon] {
+    return [
+        PresentationAppIcon(name: "JustgramPhone", imageName: "JustgramPhonePreview", isDefault: true),
+        PresentationAppIcon(name: "JustgramFeather", imageName: "JustgramFeatherPreview"),
+        PresentationAppIcon(name: "JustgramWeight", imageName: "JustgramWeightPreview")
+    ]
+}
 
 /// Full-window overlay that desaturates everything below it.
 final class JustgramGrayscaleOverlay: UIView {

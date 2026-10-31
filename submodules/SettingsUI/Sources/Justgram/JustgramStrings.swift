@@ -15,6 +15,9 @@ struct JustgramTranslation {
     let grayscale: String
     /// %1$@ is Power Saving, %2$@ Large Emoji, %3$@ Appearance, in the words of the active language pack.
     let calmFooterFormat: String
+    let appIconPhone: String
+    let appIconFeather: String
+    let appIconWeight: String
 }
 
 /// Telegram's language packs come from its servers and never carry Justgram's keys, so every interface
@@ -70,7 +73,10 @@ private let justgramEnglish = JustgramTranslation(
     hideChannelsFooter: "Channels are removed from the chat list and the badge. You can still find them in Search.",
     calmHeader: "CALM INTERFACE",
     grayscale: "Grayscale",
-    calmFooterFormat: "The whole interface turns grayscale. GIF and video autoplay are set in %1$@, %2$@ in %3$@."
+    calmFooterFormat: "The whole interface turns grayscale. GIF and video autoplay are set in %1$@, %2$@ in %3$@.",
+    appIconPhone: "Phone",
+    appIconFeather: "Feather",
+    appIconWeight: "Weight"
 )
 
 // Keyed by the official Telegram interface languages (Settings ▸ Language).
@@ -86,7 +92,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Каналы пропадают из списка чатов и не учитываются в счётчике. Найти их можно через поиск.",
         calmHeader: "СПОКОЙНЫЙ ИНТЕРФЕЙС",
         grayscale: "Чёрно-белый режим",
-        calmFooterFormat: "Весь интерфейс становится чёрно-белым. Автовоспроизведение GIF и видео настраивается в разделе «%1$@», «%2$@» — в разделе «%3$@»."
+        calmFooterFormat: "Весь интерфейс становится чёрно-белым. Автовоспроизведение GIF и видео настраивается в разделе «%1$@», «%2$@» — в разделе «%3$@».",
+        appIconPhone: "Телефон",
+        appIconFeather: "Перо",
+        appIconWeight: "Гирька"
     ),
     "uk": JustgramTranslation(
         off: "Не приховувати",
@@ -98,7 +107,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Канали зникають зі списку чатів і не враховуються в лічильнику. Знайти їх можна через пошук.",
         calmHeader: "СПОКІЙНИЙ ІНТЕРФЕЙС",
         grayscale: "Чорно-білий режим",
-        calmFooterFormat: "Увесь інтерфейс стає чорно-білим. Автовідтворення GIF і відео налаштовується в розділі «%1$@», «%2$@» — у розділі «%3$@»."
+        calmFooterFormat: "Увесь інтерфейс стає чорно-білим. Автовідтворення GIF і відео налаштовується в розділі «%1$@», «%2$@» — у розділі «%3$@».",
+        appIconPhone: "Телефон",
+        appIconFeather: "Перо",
+        appIconWeight: "Гирька"
     ),
     "be": JustgramTranslation(
         off: "Не хаваць",
@@ -110,7 +122,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Каналы знікаюць са спіса чатаў і не ўлічваюцца ў лічыльніку. Знайсці іх можна праз пошук.",
         calmHeader: "СПАКОЙНЫ ІНТЭРФЕЙС",
         grayscale: "Чорна-белы рэжым",
-        calmFooterFormat: "Увесь інтэрфейс становіцца чорна-белым. Аўтапрайграванне GIF і відэа наладжваецца ў раздзеле «%1$@», «%2$@» — у раздзеле «%3$@»."
+        calmFooterFormat: "Увесь інтэрфейс становіцца чорна-белым. Аўтапрайграванне GIF і відэа наладжваецца ў раздзеле «%1$@», «%2$@» — у раздзеле «%3$@».",
+        appIconPhone: "Тэлефон",
+        appIconFeather: "Пяро",
+        appIconWeight: "Гірка"
     ),
     "kk": JustgramTranslation(
         off: "Жасырмау",
@@ -122,7 +137,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Арналар чаттар тізімінен жойылады және санауышқа кірмейді. Оларды іздеу арқылы табуға болады.",
         calmHeader: "ТЫНЫШ ИНТЕРФЕЙС",
         grayscale: "Ақ-қара режим",
-        calmFooterFormat: "Бүкіл интерфейс ақ-қара болады. GIF пен бейнелерді автоойнату «%1$@» бөлімінде, «%2$@» — «%3$@» бөлімінде бапталады."
+        calmFooterFormat: "Бүкіл интерфейс ақ-қара болады. GIF пен бейнелерді автоойнату «%1$@» бөлімінде, «%2$@» — «%3$@» бөлімінде бапталады.",
+        appIconPhone: "Телефон",
+        appIconFeather: "Қауырсын",
+        appIconWeight: "Гір"
     ),
     "sr": JustgramTranslation(
         off: "Не скривај",
@@ -134,7 +152,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Канали нестају са листе ћаскања и не урачунавају се у бројач. Можете их пронаћи претрагом.",
         calmHeader: "МИРАН ИНТЕРФЕЈС",
         grayscale: "Црно-бели режим",
-        calmFooterFormat: "Цео интерфејс постаје црно-бео. Аутоматско пуштање GIF-ова и видео-снимака подешава се у одељку „%1$@“, а „%2$@“ у одељку „%3$@“."
+        calmFooterFormat: "Цео интерфејс постаје црно-бео. Аутоматско пуштање GIF-ова и видео-снимака подешава се у одељку „%1$@“, а „%2$@“ у одељку „%3$@“.",
+        appIconPhone: "Телефон",
+        appIconFeather: "Перо",
+        appIconWeight: "Тег"
     ),
     "hr": JustgramTranslation(
         off: "Ne skrivaj",
@@ -146,7 +167,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanali nestaju s popisa razgovora i ne ubrajaju se u brojač. I dalje ih možete pronaći pretraživanjem.",
         calmHeader: "MIRNO SUČELJE",
         grayscale: "Crno-bijeli način",
-        calmFooterFormat: "Cijelo sučelje postaje crno-bijelo. Automatska reprodukcija GIF-ova i videozapisa podešava se u odjeljku „%1$@”, a „%2$@” u odjeljku „%3$@”."
+        calmFooterFormat: "Cijelo sučelje postaje crno-bijelo. Automatska reprodukcija GIF-ova i videozapisa podešava se u odjeljku „%1$@”, a „%2$@” u odjeljku „%3$@”.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Pero",
+        appIconWeight: "Uteg"
     ),
     "cs": JustgramTranslation(
         off: "Neskrývat",
@@ -158,7 +182,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanály zmizí ze seznamu chatů a nezapočítávají se do odznaku. Najdete je pomocí hledání.",
         calmHeader: "KLIDNÉ ROZHRANÍ",
         grayscale: "Černobílý režim",
-        calmFooterFormat: "Celé rozhraní bude černobílé. Automatické přehrávání GIFů a videí se nastavuje v sekci „%1$@“, „%2$@“ v sekci „%3$@“."
+        calmFooterFormat: "Celé rozhraní bude černobílé. Automatické přehrávání GIFů a videí se nastavuje v sekci „%1$@“, „%2$@“ v sekci „%3$@“.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Pero",
+        appIconWeight: "Závaží"
     ),
     "sk": JustgramTranslation(
         off: "Neskrývať",
@@ -170,7 +197,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanály zmiznú zo zoznamu četov a nezapočítavajú sa do odznaku. Nájdete ich cez vyhľadávanie.",
         calmHeader: "POKOJNÉ ROZHRANIE",
         grayscale: "Čiernobiely režim",
-        calmFooterFormat: "Celé rozhranie bude čiernobiele. Automatické prehrávanie GIFov a videí sa nastavuje v sekcii „%1$@“, „%2$@“ v sekcii „%3$@“."
+        calmFooterFormat: "Celé rozhranie bude čiernobiele. Automatické prehrávanie GIFov a videí sa nastavuje v sekcii „%1$@“, „%2$@“ v sekcii „%3$@“.",
+        appIconPhone: "Telefón",
+        appIconFeather: "Pero",
+        appIconWeight: "Závažie"
     ),
     "pl": JustgramTranslation(
         off: "Nie ukrywaj",
@@ -182,7 +212,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanały znikają z listy czatów i nie są wliczane do licznika. Nadal znajdziesz je przez wyszukiwanie.",
         calmHeader: "SPOKOJNY INTERFEJS",
         grayscale: "Tryb czarno-biały",
-        calmFooterFormat: "Cały interfejs staje się czarno-biały. Autoodtwarzanie GIF-ów i filmów ustawisz w sekcji „%1$@”, a „%2$@” w sekcji „%3$@”."
+        calmFooterFormat: "Cały interfejs staje się czarno-biały. Autoodtwarzanie GIF-ów i filmów ustawisz w sekcji „%1$@”, a „%2$@” w sekcji „%3$@”.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Pióro",
+        appIconWeight: "Odważnik"
     ),
     "de": JustgramTranslation(
         off: "Aus",
@@ -194,7 +227,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanäle verschwinden aus der Chatliste und dem Zähler. Über die Suche findest du sie weiterhin.",
         calmHeader: "RUHIGE OBERFLÄCHE",
         grayscale: "Graustufen",
-        calmFooterFormat: "Die gesamte Oberfläche wird in Graustufen angezeigt. Die automatische Wiedergabe von GIFs und Videos stellst du unter „%1$@“ ein, „%2$@“ unter „%3$@“."
+        calmFooterFormat: "Die gesamte Oberfläche wird in Graustufen angezeigt. Die automatische Wiedergabe von GIFs und Videos stellst du unter „%1$@“ ein, „%2$@“ unter „%3$@“.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Feder",
+        appIconWeight: "Gewicht"
     ),
     "fr": JustgramTranslation(
         off: "Désactivé",
@@ -206,7 +242,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Les chaînes disparaissent de la liste des discussions et du badge. Vous pouvez toujours les trouver via la recherche.",
         calmHeader: "INTERFACE APAISÉE",
         grayscale: "Niveaux de gris",
-        calmFooterFormat: "Toute l'interface passe en niveaux de gris. La lecture automatique des GIF et des vidéos se règle dans « %1$@ », et « %2$@ » dans « %3$@ »."
+        calmFooterFormat: "Toute l'interface passe en niveaux de gris. La lecture automatique des GIF et des vidéos se règle dans « %1$@ », et « %2$@ » dans « %3$@ ».",
+        appIconPhone: "Téléphone",
+        appIconFeather: "Plume",
+        appIconWeight: "Poids"
     ),
     "es": JustgramTranslation(
         off: "Desactivado",
@@ -218,7 +257,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Los canales desaparecen de la lista de chats y del contador. Puedes encontrarlos en la búsqueda.",
         calmHeader: "INTERFAZ TRANQUILA",
         grayscale: "Escala de grises",
-        calmFooterFormat: "Toda la interfaz pasa a escala de grises. La reproducción automática de GIF y videos se ajusta en «%1$@», y «%2$@» en «%3$@»."
+        calmFooterFormat: "Toda la interfaz pasa a escala de grises. La reproducción automática de GIF y videos se ajusta en «%1$@», y «%2$@» en «%3$@».",
+        appIconPhone: "Teléfono",
+        appIconFeather: "Pluma",
+        appIconWeight: "Pesa"
     ),
     "ca": JustgramTranslation(
         off: "Desactivat",
@@ -230,7 +272,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Els canals desapareixen de la llista de xats i del comptador. Encara els pots trobar amb la cerca.",
         calmHeader: "INTERFÍCIE TRANQUIL·LA",
         grayscale: "Escala de grisos",
-        calmFooterFormat: "Tota la interfície passa a escala de grisos. La reproducció automàtica de GIF i vídeos es configura a «%1$@», i «%2$@» a «%3$@»."
+        calmFooterFormat: "Tota la interfície passa a escala de grisos. La reproducció automàtica de GIF i vídeos es configura a «%1$@», i «%2$@» a «%3$@».",
+        appIconPhone: "Telèfon",
+        appIconFeather: "Ploma",
+        appIconWeight: "Pes"
     ),
     "it": JustgramTranslation(
         off: "Disattivato",
@@ -242,7 +287,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "I canali spariscono dalla lista delle chat e dal contatore. Puoi comunque trovarli con la ricerca.",
         calmHeader: "INTERFACCIA TRANQUILLA",
         grayscale: "Scala di grigi",
-        calmFooterFormat: "L'intera interfaccia diventa in scala di grigi. La riproduzione automatica di GIF e video si imposta in «%1$@», e «%2$@» in «%3$@»."
+        calmFooterFormat: "L'intera interfaccia diventa in scala di grigi. La riproduzione automatica di GIF e video si imposta in «%1$@», e «%2$@» in «%3$@».",
+        appIconPhone: "Telefono",
+        appIconFeather: "Piuma",
+        appIconWeight: "Peso"
     ),
     "pt": JustgramTranslation(
         off: "Desativado",
@@ -254,7 +302,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Os canais somem da lista de conversas e do contador. Você ainda pode encontrá-los na busca.",
         calmHeader: "INTERFACE TRANQUILA",
         grayscale: "Escala de cinza",
-        calmFooterFormat: "Toda a interface fica em escala de cinza. A reprodução automática de GIFs e vídeos é ajustada em “%1$@”, e “%2$@” em “%3$@”."
+        calmFooterFormat: "Toda a interface fica em escala de cinza. A reprodução automática de GIFs e vídeos é ajustada em “%1$@”, e “%2$@” em “%3$@”.",
+        appIconPhone: "Telefone",
+        appIconFeather: "Pena",
+        appIconWeight: "Peso"
     ),
     "nl": JustgramTranslation(
         off: "Uit",
@@ -266,7 +317,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanalen verdwijnen uit de chatlijst en de teller. Je kunt ze nog steeds vinden via Zoeken.",
         calmHeader: "RUSTIGE INTERFACE",
         grayscale: "Grijstinten",
-        calmFooterFormat: "De hele interface wordt grijs. Automatisch afspelen van GIF's en video's stel je in bij ‘%1$@’, ‘%2$@’ bij ‘%3$@’."
+        calmFooterFormat: "De hele interface wordt grijs. Automatisch afspelen van GIF's en video's stel je in bij ‘%1$@’, ‘%2$@’ bij ‘%3$@’.",
+        appIconPhone: "Telefoon",
+        appIconFeather: "Veer",
+        appIconWeight: "Gewicht"
     ),
     "sv": JustgramTranslation(
         off: "Av",
@@ -278,7 +332,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanaler försvinner från chattlistan och räknaren. Du hittar dem fortfarande via sökningen.",
         calmHeader: "LUGNT GRÄNSSNITT",
         grayscale: "Gråskala",
-        calmFooterFormat: "Hela gränssnittet blir gråskaligt. Automatisk uppspelning av GIF och video ställs in under ”%1$@”, ”%2$@” under ”%3$@”."
+        calmFooterFormat: "Hela gränssnittet blir gråskaligt. Automatisk uppspelning av GIF och video ställs in under ”%1$@”, ”%2$@” under ”%3$@”.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Fjäder",
+        appIconWeight: "Vikt"
     ),
     "nb": JustgramTranslation(
         off: "Av",
@@ -290,7 +347,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanaler forsvinner fra samtalelisten og telleren. Du finner dem fortsatt via søk.",
         calmHeader: "ROLIG GRENSESNITT",
         grayscale: "Gråtoner",
-        calmFooterFormat: "Hele grensesnittet blir i gråtoner. Automatisk avspilling av GIF og video stilles inn under «%1$@», «%2$@» under «%3$@»."
+        calmFooterFormat: "Hele grensesnittet blir i gråtoner. Automatisk avspilling av GIF og video stilles inn under «%1$@», «%2$@» under «%3$@».",
+        appIconPhone: "Telefon",
+        appIconFeather: "Fjær",
+        appIconWeight: "Lodd"
     ),
     "fi": JustgramTranslation(
         off: "Pois",
@@ -302,7 +362,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanavat poistuvat keskustelulistalta ja laskurista. Löydät ne edelleen haulla.",
         calmHeader: "RAUHALLINEN KÄYTTÖLIITTYMÄ",
         grayscale: "Harmaasävyt",
-        calmFooterFormat: "Koko käyttöliittymä muuttuu harmaasävyiseksi. GIFien ja videoiden automaattinen toisto asetetaan kohdassa ”%1$@”, ”%2$@” kohdassa ”%3$@”."
+        calmFooterFormat: "Koko käyttöliittymä muuttuu harmaasävyiseksi. GIFien ja videoiden automaattinen toisto asetetaan kohdassa ”%1$@”, ”%2$@” kohdassa ”%3$@”.",
+        appIconPhone: "Puhelin",
+        appIconFeather: "Höyhen",
+        appIconWeight: "Punnus"
     ),
     "hu": JustgramTranslation(
         off: "Ki",
@@ -314,7 +377,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "A csatornák eltűnnek a csevegéslistáról és a számlálóból. A keresővel továbbra is megtalálhatod őket.",
         calmHeader: "NYUGODT FELÜLET",
         grayscale: "Szürkeárnyalat",
-        calmFooterFormat: "A teljes felület szürkeárnyalatos lesz. A GIF-ek és videók automatikus lejátszása a(z) „%1$@” részben állítható, a(z) „%2$@” pedig a(z) „%3$@” részben."
+        calmFooterFormat: "A teljes felület szürkeárnyalatos lesz. A GIF-ek és videók automatikus lejátszása a(z) „%1$@” részben állítható, a(z) „%2$@” pedig a(z) „%3$@” részben.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Toll",
+        appIconWeight: "Súly"
     ),
     "ro": JustgramTranslation(
         off: "Dezactivat",
@@ -326,7 +392,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Canalele dispar din lista de conversații și din contor. Le poți găsi în continuare prin căutare.",
         calmHeader: "INTERFAȚĂ LINIȘTITĂ",
         grayscale: "Tonuri de gri",
-        calmFooterFormat: "Întreaga interfață devine în tonuri de gri. Redarea automată a GIF-urilor și videoclipurilor se setează în „%1$@”, iar „%2$@” în „%3$@”."
+        calmFooterFormat: "Întreaga interfață devine în tonuri de gri. Redarea automată a GIF-urilor și videoclipurilor se setează în „%1$@”, iar „%2$@” în „%3$@”.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Pană",
+        appIconWeight: "Greutate"
     ),
     "tr": JustgramTranslation(
         off: "Kapalı",
@@ -338,7 +407,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanallar sohbet listesinden ve sayaçtan kaldırılır. Onları yine de aramayla bulabilirsiniz.",
         calmHeader: "SAKİN ARAYÜZ",
         grayscale: "Gri tonlama",
-        calmFooterFormat: "Tüm arayüz gri tonlamalı olur. GIF ve videoların otomatik oynatılması “%1$@” bölümünden, “%2$@” ise “%3$@” bölümünden ayarlanır."
+        calmFooterFormat: "Tüm arayüz gri tonlamalı olur. GIF ve videoların otomatik oynatılması “%1$@” bölümünden, “%2$@” ise “%3$@” bölümünden ayarlanır.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Tüy",
+        appIconWeight: "Ağırlık"
     ),
     "uz": JustgramTranslation(
         off: "Yashirmaslik",
@@ -350,7 +422,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanallar chatlar roʻyxatidan va hisoblagichdan olib tashlanadi. Ularni qidiruv orqali topish mumkin.",
         calmHeader: "OSOYISHTA INTERFEYS",
         grayscale: "Oq-qora rejim",
-        calmFooterFormat: "Butun interfeys oq-qora boʻladi. GIF va videolarni avtomatik ijro etish “%1$@” boʻlimida, “%2$@” esa “%3$@” boʻlimida sozlanadi."
+        calmFooterFormat: "Butun interfeys oq-qora boʻladi. GIF va videolarni avtomatik ijro etish “%1$@” boʻlimida, “%2$@” esa “%3$@” boʻlimida sozlanadi.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Pat",
+        appIconWeight: "Tosh"
     ),
     "id": JustgramTranslation(
         off: "Mati",
@@ -362,7 +437,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Kanal dihapus dari daftar obrolan dan lencana. Anda tetap dapat menemukannya di Pencarian.",
         calmHeader: "ANTARMUKA TENANG",
         grayscale: "Skala Abu-abu",
-        calmFooterFormat: "Seluruh antarmuka menjadi skala abu-abu. Putar otomatis GIF dan video diatur di “%1$@”, dan “%2$@” di “%3$@”."
+        calmFooterFormat: "Seluruh antarmuka menjadi skala abu-abu. Putar otomatis GIF dan video diatur di “%1$@”, dan “%2$@” di “%3$@”.",
+        appIconPhone: "Telepon",
+        appIconFeather: "Bulu",
+        appIconWeight: "Pemberat"
     ),
     "ms": JustgramTranslation(
         off: "Mati",
@@ -374,7 +452,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "Saluran dialih keluar daripada senarai sembang dan lencana. Anda masih boleh mencarinya dalam Carian.",
         calmHeader: "ANTARA MUKA TENANG",
         grayscale: "Skala Kelabu",
-        calmFooterFormat: "Seluruh antara muka menjadi skala kelabu. Main automatik GIF dan video ditetapkan dalam “%1$@”, dan “%2$@” dalam “%3$@”."
+        calmFooterFormat: "Seluruh antara muka menjadi skala kelabu. Main automatik GIF dan video ditetapkan dalam “%1$@”, dan “%2$@” dalam “%3$@”.",
+        appIconPhone: "Telefon",
+        appIconFeather: "Bulu",
+        appIconWeight: "Pemberat"
     ),
     "ar": JustgramTranslation(
         off: "إيقاف",
@@ -386,7 +467,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "تُزال القنوات من قائمة المحادثات ومن العدّاد. يمكنك العثور عليها عبر البحث.",
         calmHeader: "واجهة هادئة",
         grayscale: "تدرّج الرمادي",
-        calmFooterFormat: "تصبح الواجهة كلها بتدرّج الرمادي. يُضبط التشغيل التلقائي لصور GIF والفيديو في «%1$@»، و«%2$@» في «%3$@»."
+        calmFooterFormat: "تصبح الواجهة كلها بتدرّج الرمادي. يُضبط التشغيل التلقائي لصور GIF والفيديو في «%1$@»، و«%2$@» في «%3$@».",
+        appIconPhone: "هاتف",
+        appIconFeather: "ريشة",
+        appIconWeight: "ثقل"
     ),
     "fa": JustgramTranslation(
         off: "خاموش",
@@ -398,7 +482,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "کانال‌ها از فهرست گفتگوها و شمارنده حذف می‌شوند. همچنان می‌توانید آن‌ها را با جستجو پیدا کنید.",
         calmHeader: "رابط آرام",
         grayscale: "سیاه‌وسفید",
-        calmFooterFormat: "کل رابط کاربری سیاه‌وسفید می‌شود. پخش خودکار GIF و ویدیو در «%1$@» تنظیم می‌شود و «%2$@» در «%3$@»."
+        calmFooterFormat: "کل رابط کاربری سیاه‌وسفید می‌شود. پخش خودکار GIF و ویدیو در «%1$@» تنظیم می‌شود و «%2$@» در «%3$@».",
+        appIconPhone: "تلفن",
+        appIconFeather: "پر",
+        appIconWeight: "وزنه"
     ),
     "he": JustgramTranslation(
         off: "כבוי",
@@ -410,7 +497,10 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "ערוצים מוסרים מרשימת הצ׳אטים ומהמונה. עדיין אפשר למצוא אותם בחיפוש.",
         calmHeader: "ממשק רגוע",
         grayscale: "גווני אפור",
-        calmFooterFormat: "כל הממשק הופך לגווני אפור. ההפעלה האוטומטית של GIF וסרטונים מוגדרת בהגדרה \"%1$@\", ו\"%2$@\" בהגדרה \"%3$@\"."
+        calmFooterFormat: "כל הממשק הופך לגווני אפור. ההפעלה האוטומטית של GIF וסרטונים מוגדרת בהגדרה \"%1$@\", ו\"%2$@\" בהגדרה \"%3$@\".",
+        appIconPhone: "טלפון",
+        appIconFeather: "נוצה",
+        appIconWeight: "משקולת"
     ),
     "ko": JustgramTranslation(
         off: "끔",
@@ -422,6 +512,24 @@ private let justgramTranslations: [String: JustgramTranslation] = [
         hideChannelsFooter: "채널이 채팅 목록과 배지에서 제거됩니다. 검색으로는 계속 찾을 수 있습니다.",
         calmHeader: "차분한 인터페이스",
         grayscale: "흑백",
-        calmFooterFormat: "전체 인터페이스가 흑백으로 바뀝니다. GIF와 동영상 자동 재생은 '%1$@'에서, '%2$@'은(는) '%3$@'에서 설정합니다."
+        calmFooterFormat: "전체 인터페이스가 흑백으로 바뀝니다. GIF와 동영상 자동 재생은 '%1$@'에서, '%2$@'은(는) '%3$@'에서 설정합니다.",
+        appIconPhone: "전화기",
+        appIconFeather: "깃털",
+        appIconWeight: "저울추"
     )
 ]
+
+/// Titles of Justgram's app icons in the Appearance icon picker.
+func justgramAppIconTitle(_ name: String, strings: PresentationStrings) -> String? {
+    let strings = JustgramStrings(strings: strings)
+    switch name {
+    case "JustgramPhone":
+        return strings.appIconPhone
+    case "JustgramFeather":
+        return strings.appIconFeather
+    case "JustgramWeight":
+        return strings.appIconWeight
+    default:
+        return nil
+    }
+}

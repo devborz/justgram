@@ -410,7 +410,7 @@ class ThemeSettingsAppIconItemNode: ListViewItemNode, ItemListItemNode {
                                 case "PremiumTurbo":
                                     name = item.strings.Appearance_AppIconTurbo
                                 default:
-                                    name = icon.name
+                                    name = justgramAppIconTitle(icon.name, strings: item.strings) ?? icon.name // Justgram
                             }
                         
                             imageNode.setup(theme: item.theme, icon: image, title: NSAttributedString(string: name, font: selected ? selectedTextFont : textFont, textColor: selected  ? item.theme.list.itemAccentColor : item.theme.list.itemPrimaryTextColor, paragraphAlignment: .center), locked: !item.isPremium && icon.isPremium, color: item.theme.list.itemPrimaryTextColor, bordered: bordered, selected: selected, action: {

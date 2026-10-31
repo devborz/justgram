@@ -326,22 +326,17 @@ filegroup(
     ]),
 )
 
-alternate_icon_folders = [
-    "BlackIcon",
-    "BlackClassicIcon",
-    "BlackFilledIcon",
-    "BlueIcon",
-    "BlueClassicIcon",
-    "BlueFilledIcon",
-    "WhiteFilledIcon",
-    "New1",
-    "New2",
-    "Premium",
-    "PremiumBlack",
-    "PremiumTurbo",
-]
+# Justgram: Telegram's alternate icons carry its logo (API terms §2.4), so none are shipped. Justgram's
+# alternates are Icon Composer documents next to the primary Telegram.icon, so they follow the system
+# appearance (light, dark, tinted) like it; JustgramIconPreviews holds what the Appearance picker shows.
+alternate_icon_folders = []
 
-composer_icon_folders = ["Telegram"]
+composer_icon_folders = ["Telegram", "JustgramFeather", "JustgramWeight"]
+
+filegroup(
+    name = "JustgramIconPreviews",
+    srcs = glob(["Telegram-iOS/JustgramIconPreviews/*.png"]),
+)
 
 [
     filegroup(
@@ -1923,11 +1918,13 @@ ios_application(
         ":UrlTypesInfoPlist",
     ],
     app_icons = [ ":{}_icon".format(name) for name in composer_icon_folders ],
+    primary_app_icon = "Telegram", # Justgram
     alternate_icons = [
         ":{}".format(name) for name in alternate_icon_folders
     ],
     resources = [
         ":LaunchScreen",
+        ":JustgramIconPreviews", # Justgram
         #":DefaultAppIcon",
     ],
     frameworks = [
